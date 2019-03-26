@@ -1,0 +1,88 @@
+#main{
+	margin-left:2em;
+}
+
+#allocateStats{
+	margin-right:10em;
+}
+
+h1{
+	margin:0;
+}
+
+#statFrame, #widgets, #dataInfoComponent{
+	display:inline-block;
+	vertical-align:top;
+}
+
+#frameLeft, #frameRight{
+	display:inline-block;
+	vertical-align:top;
+}
+
+#statFrame{
+	width:530px;
+	height:675px;
+	border:1px solid black;
+}
+
+#widgets{
+	width:250px;
+	height:675px;
+	border:1px solid black;
+}
+
+#dataInfoComponent{
+	width:320px;
+	height:675px;
+	padding-top:16px;
+	padding-bottom:16px;
+	border:1px solid black;
+	font-size:13px;
+}
+
+#infoBox{
+	position:absolute;
+	top:62.5px;
+	left:25px;
+	padding:10px;
+	width:220px;
+	height:675px;
+	border:1px solid black;
+	border-radius:4.8px;
+	background-color:#e9ecef;
+}
+
+#frameLeft{
+	margin-right:30px;
+}
+
+#health, #mana, #attack, #defense, #magic, #resistance{
+	margin-right:80px;
+}
+
+#healthParam, #manaParam, #attackParam, #defenseParam, #magicParam, #resistanceParam{
+	position:absolute;
+	left:340px;
+	margin-left:240px;
+	margin-right:240px;
+}
+
+#alloHp, #alloMp, #alloAtk, #alloDef, #alloMag, #alloRes{
+	position:absolute;
+	left:440px;
+	margin-left:260px;
+}
+
+.subBtn{
+	position:absolute;
+	left:290px;
+	margin-left:220px;
+	margin-right:220px;
+}
+
+.addBtn{
+	position:absolute;
+	left:390px;
+	margin-left:240px;
+}
