@@ -12,79 +12,183 @@
         <script src="calc.js"></script>
     </head>
     <body>
-    	<div id="main">
-    		<div id="allocateStats" class="text-center">
-    			<button class="btn btn-success" onclick="allocatePoints()">Allocate Stats</button>  <button class="btn btn-success" onclick="confirmAllocation()">Confirm Allocation</button>  <button class="btn btn-success" onclick="levelUp()">Level Up</button>  <button class="btn btn-success" onclick="changeFormula()">Change Formula</button>  <button class="btn btn-success" onclick="givePoints()">Gain Points</button>
-    		</div><br/>
-            <div class="container">
-        		<div class="jumbotron" id="statFrame">
-        			<div id="frameLeft">
-        				<h1>Stats</h1>
-                        <span id="lvl">LV: 1</span><br/><br/>
-        				<span id="hp">HP: 200</span><span id="maxHp"></span><br/><br/><br/>
-        				<span id="mp">MP: 100</span><span id="maxMp"></span><br/><br/><br/>
-        				<span id="atk">ATK: 50</span><br/><br/><br/>
-        				<span id="def">DEF: 20</span><br/><br/><br/>
-        				<span id="mag">MAG: 35</span><br/><br/><br/>
-        				<span id="res">RES: 5</span>
-        			</div>
-        			<div id="frameRight">
-                        <h1>Scale Parameters</h1>
-                        <span id="availPoints">Points Available: 0</span><br/><br/>
-        				<div class="stat"><span id="health">Health        </span><button class="subBtn btn btn-danger" onclick="subStat('health')" disabled>-</button><span id="healthParam">    1</span><button class="addBtn btn btn-primary" onclick="addStat('health')" disabled>+</button><span id="alloHp"> +0</span></div><br/><br/>
-        				<div class="stat"><span id="mana">Mana            </span><button class="subBtn btn btn-danger" onclick="subStat('mana')" disabled>-</button><span id="manaParam">      1</span><button class="addBtn btn btn-primary" onclick="addStat('mana')" disabled>+</button><span id="alloMp"> +0</span></div><br/><br/>
-        				<div class="stat"><span id="attack">Attack        </span><button class="subBtn btn btn-danger" onclick="subStat('attack')" disabled>-</button><span id="attackParam">    1</span><button class="addBtn btn btn-primary" onclick="addStat('attack')" disabled>+</button><span id="alloAtk"> +0</span></div><br/><br/>
-        				<div class="stat"><span id="defense">Defense      </span><button class="subBtn btn btn-danger" onclick="subStat('defense')" disabled>-</button><span id="defenseParam">   1</span><button class="addBtn btn btn-primary" onclick="addStat('defense')" disabled>+</button><span id="alloDef"> +0</span></div><br/><br/>
-        				<div class="stat"><span id="magic">Magic          </span><button class="subBtn btn btn-danger" onclick="subStat('magic')" disabled>-</button><span id="magicParam">     1</span><button class="addBtn btn btn-primary" onclick="addStat('magic')" disabled>+</button><span id="alloMag"> +0</span></div><br/><br/>
-        				<div class="stat"><span id="resistance">Resistance</span><button class="subBtn btn btn-danger" onclick="subStat('resistance')" disabled>-</button><span id="resistanceParam">1</span><button class="addBtn btn btn-primary" onclick="addStat('resistance')" disabled>+</button><span id="alloRes"> +0</span></div><br/><br/>
-        			</div>
-        		</div>
-                <div class="jumbotron" id="widgets">
-                    <div id="paramAdjustFrame">
-                                <label for="parAdjHp">Health</label><br/>
-                                <input type="text" name="parAdjHp" id="parAdjHp"><br/>
-                                <label for="parAdjMp">Mana</label><br/>
-                                <input type="text" name="parAdjMp" id="parAdjMp"><br/>
-                                <label for="parAdjAtk">Attack</label><br/>
-                                <input type="text" name="parAdjAtk" id="parAdjAtk"><br/>
-                                <label for="parAdjDef">Defense</label><br/>
-                                <input type="text" name="parAdjDef" id="parAdjDef"><br/>
-                                <label for="parAdjMag">Magic</label><br/>
-                                <input type="text" name="parAdjMag" id="parAdjMag"><br/>
-                                <label for="parAdjRes">Resistance</label><br/>
-                                <input type="text" name="parAdjRes" id="parAdjRes"><br/>
-                                <label for="parAdjDiv">Divisor</label></br/>
-                                <input type="text" name="parAdjDiv" id="parAdjDiv"><br/><br/>
-                                <button id="adjustBtn" class="btn btn-warning" onclick="adjustFormula()" disabled>Adjust Formula</button>
-                    </div>
-                </div>
-                <div class="jumbotron" id="dataInfoComponent">
-                    <h3 class="text-center">Gains per Level</h3>
-                    <p class="text-white bg-primary" id="dataHp">15</p>
-                    <p class="text-white bg-primary" id="dataMp">15</p>
-                    <p class="text-white bg-primary" id="dataAtk">15</p>
-                    <p class="text-white bg-primary" id="dataDef">15</p>
-                    <p class="text-white bg-primary" id="dataMag">15</p>
-                    <p class="text-white bg-primary" id="dataRes">15</p>
-                    <hr />
-
-                    <h3 class="text-center">Formula per Stat</h3>
-                    <p class="text-white bg-primary" id="formHp">15</p>
-                    <p class="text-white bg-primary" id="formMp">15</p>
-                    <p class="text-white bg-primary" id="formAtk">15</p>
-                    <p class="text-white bg-primary" id="formDef">15</p>
-                    <p class="text-white bg-primary" id="formMag">15</p>
-                    <p class="text-white bg-primary" id="formRes">15</p>
-                    <hr />
-
-                    <h3 class="text-center">Current Divisor</h3>
-                    <p class="text-white bg-primary" id="dataDiv">15</p>
-                </div>
-    	</div>
-        <div id="infoBox">
-            <h3>Welcome to the stat calculator!</h3>
-            <hr/>
-            <p>The stat calculator is a handy little tool to calculate stat growth. Your character's stats are displayed in the first column while the second column contains your "scale parameters". Scale Parameters are used in the formula to determine how your growth in a particular stat is impacted. In the second table, you can adjust the base values and the divisor value of the formula. In the last table you can see how each level up powers your character up and see the specific formula that is impacting each stat.</p>
+        <div id="head">
+            <div id="allocateStats" class="text-center">
+                <button class="btn btn-success" onclick="allocatePoints()">Allocate Stats</button>  <button class="btn btn-success" onclick="confirmAllocation()">Confirm Allocation</button>  <button class="btn btn-success" onclick="levelUp()">Level Up</button>  <button class="btn btn-success" onclick="changeFormula()">Change Formula</button>  <button class="btn btn-success" onclick="givePoints()">Gain Points</button>
+            </div><br/>
+            <div id="infoBox">
+                <h3>Welcome to the stat calculator!</h3>
+                <hr/>
+                <p>The stat calculator is a handy little tool to calculate stat growth. Your character's stats are displayed in the first column while the second column contains your "scale parameters". Scale Parameters are used in the formula to determine how your growth in a particular stat is impacted. In the second table, you can adjust the base values and the divisor value of the formula. In the last table you can see how each level up powers your character up and see the specific formula that is impacting each stat.</p>
+            </div>
         </div>
+        <br/>
+    	<div id="main">
+    		<div id="statFrame">
+    			<div id="frameLeft">
+    				<h1>Stats</h1>
+                    <span id="lvl">LV: 1</span><br/>
+    				<span id="hp">HP: 200</span><span id="maxHp"></span><br/>
+    				<span id="mp">MP: 100</span><span id="maxMp"></span><br/>
+    				<span id="atk">ATK: 50</span><br/>
+    				<span id="def">DEF: 20</span><br/>
+    				<span id="mag">MAG: 35</span><br/>
+    				<span id="res">RES: 5</span>
+    			</div>
+    			<div id="frameRight">
+                    <h1>Scale Parameters</h1>
+                    <span id="availPoints">Points Available: 0</span><br/><br/>
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="health">Health</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="healthParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('health')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('health')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloHp">+0</p>
+                        </div>
+                    </div>
+
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="mana">Mana</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="manaParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('mana')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('mana')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloMp">+0</p>
+                        </div>
+                    </div>
+
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="attack">Attack</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="attackParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('attack')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('attack')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloAtk">+0</p>
+                        </div>
+                    </div>
+
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="defense">Defense</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="defenseParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('defense')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('defense')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloDef">+0</p>
+                        </div>
+                    </div>
+
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="magic">Magic</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="magicParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('magic')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('magic')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloMag">+0</p>
+                        </div>
+                    </div>
+
+                    <div class="statRow">
+                        <div class="statName">
+                            <p id="resistance">Resistance</p>
+                        </div>
+                        <div class="statCurrent">
+                            <p id="resistanceParam">1</p>
+                        </div>
+                        <div class="statSub">
+                            <button class="subBtn btn btn-danger" onclick="subStat('resistance')" disabled>-</button>
+                        </div>
+                        <div class="statAdd">
+                            <button class="addBtn btn btn-primary" onclick="addStat('resistance')" disabled>+</button>
+                        </div>
+                        <div class="statPending">
+                            <p id="alloRes">+0</p>
+                        </div>
+                    </div>
+    			</div>
+    		</div>
+            <div id="widgets">
+                <div id="paramAdjustFrame">
+                            <label for="parAdjHp">Health</label><br/>
+                            <input type="text" name="parAdjHp" id="parAdjHp"><br/>
+                            <label for="parAdjMp">Mana</label><br/>
+                            <input type="text" name="parAdjMp" id="parAdjMp"><br/>
+                            <label for="parAdjAtk">Attack</label><br/>
+                            <input type="text" name="parAdjAtk" id="parAdjAtk"><br/>
+                            <label for="parAdjDef">Defense</label><br/>
+                            <input type="text" name="parAdjDef" id="parAdjDef"><br/>
+                            <label for="parAdjMag">Magic</label><br/>
+                            <input type="text" name="parAdjMag" id="parAdjMag"><br/>
+                            <label for="parAdjRes">Resistance</label><br/>
+                            <input type="text" name="parAdjRes" id="parAdjRes"><br/>
+                            <label for="parAdjDiv">Divisor</label></br/>
+                            <input type="text" name="parAdjDiv" id="parAdjDiv"><br/><br/>
+                            <button id="adjustBtn" class="btn btn-warning" onclick="adjustFormula()" disabled>Adjust Formula</button>
+                </div>
+            </div>
+            <div id="dataInfoComponent">
+                <h3 class="text-center">Gains per Level</h3>
+                <p class="text-white bg-primary" id="dataHp">15</p>
+                <p class="text-white bg-primary" id="dataMp">15</p>
+                <p class="text-white bg-primary" id="dataAtk">15</p>
+                <p class="text-white bg-primary" id="dataDef">15</p>
+                <p class="text-white bg-primary" id="dataMag">15</p>
+                <p class="text-white bg-primary" id="dataRes">15</p>
+                <hr />
+
+                <h3 class="text-center">Formula per Stat</h3>
+                <p class="text-white bg-primary" id="formHp">15</p>
+                <p class="text-white bg-primary" id="formMp">15</p>
+                <p class="text-white bg-primary" id="formAtk">15</p>
+                <p class="text-white bg-primary" id="formDef">15</p>
+                <p class="text-white bg-primary" id="formMag">15</p>
+                <p class="text-white bg-primary" id="formRes">15</p>
+                <hr />
+
+                <h3 class="text-center">Current Divisor</h3>
+                <p class="text-white bg-primary" id="dataDiv">15</p>
+            </div>
+    	</div>
+        
     </body>
 </html>

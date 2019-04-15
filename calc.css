@@ -1,88 +1,316 @@
-#main{
-	margin-left:2em;
+@media only screen and (min-width: 768px){
+	#main{
+		width:900px;
+		margin:0 auto;
+		text-align:center;
+	}
+	#allocateStats{
+		text-align:center;
+	}
+
+	h1{
+		margin:0;
+	}
+
+	#statFrame, #widgets, #dataInfoComponent{
+		display:inline-block;
+		vertical-align:top;
+		background-color:#e9ecef;
+		border-radius:5px;
+	}
+
+	#frameLeft, #frameRight{
+		display:inline-block;
+		vertical-align:top;
+	}
+
+	#statFrame{
+		width:300px;
+		height:675px;
+		border:1px solid black;
+	}
+
+	#widgets{
+		width:209px;
+		height:675px;
+		border:1px solid black;
+		text-align:center;
+	}
+
+	#dataInfoComponent{
+		width:250px;
+		height:675px;
+		padding-top:16px;
+		padding-bottom:16px;
+		border:1px solid black;
+		font-size:13px;
+	}
+
+	#infoBox{
+		padding:10px;
+		width:750px;
+		height:200px;
+		margin:12.5px auto;
+		border:1px solid black;
+		border-radius:4.8px;
+		background-color:#e9ecef;
+	}
+
+	#frameLeft{
+		margin-right:30px;
+	}
+
+	.statName{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:-45px;
+	}
+
+	.statSub{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:25px;
+	}
+
+	.statAdd{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:25px;
+	}
+
+	.statCurrent{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:10px;
+	}
+
+	.statPending{
+		display:inline-block;
+		vertical-align:top;	
+		position:relative;
+		left:45px;
+	}
 }
 
-#allocateStats{
-	margin-right:10em;
+@media only screen and (max-width: 479px){
+	#main{
+		width:100%;
+		margin:0 auto;
+	}
+
+	#allocateStats{
+		position:sticky;
+		top:0;
+		border-bottom:1px solid black;
+		background-color:#e9ecef;
+		z-index:5;
+	}
+
+	h1{
+		margin:0;
+	}
+
+	#statFrame, #widgets, #dataInfoComponent{
+		width:100%;
+		margin:25px auto;
+		background-color:#e9ecef;
+		border-radius:5px;
+	}
+
+	#widgets, #dataInfoComponent{
+		text-align:center;
+	}
+
+	#frameLeft, #frameRight{
+		z-index:1;
+	}
+
+	#frameLeft{
+		text-align:center;
+	}
+
+	#statFrame{
+		border-radius:5px;
+		border:1px solid black;
+	}
+
+	#widgets{
+		width:250px;
+		height:675px;
+		border:1px solid black;
+	}
+
+	#dataInfoComponent{
+		width:320px;
+		height:675px;
+		padding-top:16px;
+		padding-bottom:16px;
+		border:1px solid black;
+		font-size:13px;
+	}
+
+	#infoBox{
+		width:300px;
+		margin:0px auto;
+		border:1px solid black;
+		border-radius:4.8px;
+		background-color:#e9ecef;
+		text-align:center;
+	}
+
+	#frameLeft{
+		margin-right:30px;
+	}
+	.statRow{
+		text-align:center;
+	}
+
+	.statName{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:-45px;
+	}
+
+	.statSub{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:25px;
+	}
+
+	.statAdd{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:25px;
+	}
+
+	.statCurrent{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:10px;
+	}
+
+	.statPending{
+		display:inline-block;
+		vertical-align:top;	
+		position:relative;
+		left:45px;
+	}
 }
 
-h1{
-	margin:0;
-}
+@media only screen and (min-width:480px) and (max-width:767px){
+	#main{
+		width:100%;
+		margin:0 auto;
+	}
 
-#statFrame, #widgets, #dataInfoComponent{
-	display:inline-block;
-	vertical-align:top;
-}
+	#allocateStats{
+		position:sticky;
+		top:0;
+		border-bottom:1px solid black;
+		background-color:#e9ecef;
+		z-index:5;
+	}
 
-#frameLeft, #frameRight{
-	display:inline-block;
-	vertical-align:top;
-}
+	h1{
+		margin:0;
+	}
 
-#statFrame{
-	width:530px;
-	height:675px;
-	border:1px solid black;
-}
+	#statFrame, #widgets, #dataInfoComponent{
+		width:100%;
+		background-color:#e9ecef;
+		margin:25px auto;
+	}
 
-#widgets{
-	width:250px;
-	height:675px;
-	border:1px solid black;
-}
+	#widgets, #dataInfoComponent{
+		text-align:center;
+	}
 
-#dataInfoComponent{
-	width:320px;
-	height:675px;
-	padding-top:16px;
-	padding-bottom:16px;
-	border:1px solid black;
-	font-size:13px;
-}
+	#frameLeft{
+		text-align:center;
+	}
 
-#infoBox{
-	position:absolute;
-	top:62.5px;
-	left:25px;
-	padding:10px;
-	width:220px;
-	height:675px;
-	border:1px solid black;
-	border-radius:4.8px;
-	background-color:#e9ecef;
-}
+	#frameLeft, #frameRight{
+		z-index:1;
+	}
 
-#frameLeft{
-	margin-right:30px;
-}
+	#statFrame{
+		width:100%;
+		margin:auto;
+		border:1px solid black;
+		background-color:#e9ecef;
+	}
 
-#health, #mana, #attack, #defense, #magic, #resistance{
-	margin-right:80px;
-}
+	#widgets{
+		width:250px;
+		height:675px;
+		border:1px solid black;
+	}
 
-#healthParam, #manaParam, #attackParam, #defenseParam, #magicParam, #resistanceParam{
-	position:absolute;
-	left:340px;
-	margin-left:240px;
-	margin-right:240px;
-}
+	#dataInfoComponent{
+		width:320px;
+		height:675px;
+		padding-top:16px;
+		padding-bottom:16px;
+		border:1px solid black;
+		font-size:13px;
+	}
 
-#alloHp, #alloMp, #alloAtk, #alloDef, #alloMag, #alloRes{
-	position:absolute;
-	left:440px;
-	margin-left:260px;
-}
+	#infoBox{
+		width:300px;
+		margin:25px auto;
+		border:1px solid black;
+		border-radius:4.8px;
+		background-color:#e9ecef;
+		text-align:center;
+	}
 
-.subBtn{
-	position:absolute;
-	left:290px;
-	margin-left:220px;
-	margin-right:220px;
-}
+	#frameLeft{
+		margin-right:30px;
+	}
+	.statRow{
+		text-align:center;
+	}
 
-.addBtn{
-	position:absolute;
-	left:390px;
-	margin-left:240px;
+	.statName{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:-45px;
+	}
+
+	.statSub{	
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:25px;
+	}
+
+	.statAdd{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:165px;
+	}
+
+	.statCurrent{
+		display:inline-block;
+		vertical-align:top;
+		position:relative;
+		left:10px;
+	}
+
+	.statPending{
+		display:inline-block;
+		vertical-align:top;	
+		position:relative;
+		left:45px;
+	}
 }
